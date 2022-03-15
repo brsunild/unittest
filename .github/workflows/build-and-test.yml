@@ -9,7 +9,7 @@ on:
     - '**.csproj'
 
 env:
-  DOTNET_VERSION: '5.0.301' # The .NET SDK version to use
+  DOTNET_VERSION: '5.0' # The .NET SDK version to use
 
 jobs:
   build-and-test:
@@ -18,7 +18,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        os: [windows-latest]
 
     steps:
     - uses: actions/checkout@v2
@@ -26,12 +26,12 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
-
+    
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore ./DemoApp
       
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build --configuration Release --no-restore ./DemoApp
     
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test --no-restore --verbosity normal ./DemoApp
