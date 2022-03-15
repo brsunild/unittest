@@ -31,7 +31,7 @@ jobs:
       run: dotnet restore
       
     - name: Build
-      run: dotnet build DemoApp/DemoApp.sln --configuration Release --no-restore
+      run: dotnet build DemoApp\DemoApp.sln --configuration Release --no-restore
     
     - name: Test
-      run: dotnet test DemoApp/DemoApp.sln --no-restore --verbosity normal
+      run: dotnet test DemoApp\DemoApp.sln --no-restore --verbosity normal
