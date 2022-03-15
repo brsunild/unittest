@@ -27,7 +27,7 @@ namespace DemoApp.Test
             ViewResult result = await emp.Index() as ViewResult;
 
             //Assert
-            Assert.Equal("Index", result.ViewName);
+            Assert.Equal("Indexx", result.ViewName);
         }
 
         /// <summary>
